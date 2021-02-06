@@ -2,7 +2,6 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const config = require('./config')
-const contacts = require('./contacts')
 const games = require('./games')
 
 const app = express()
@@ -42,27 +41,6 @@ app.use((req, res, next) => {
     })
   }
 })
-
-/*
-app.get('/contacts', (req, res) => {
-  res.send(contacts.get(req.token))
-})
-app.delete('/contacts/:id', (req, res) => {
-  res.send(contacts.remove(req.token, req.params.id))
-})
-
-app.post('/contacts', bodyParser.json(), (req, res) => {
-  const { name, status } = req.body
-
-  if (name && status) {
-    res.send(contacts.add(req.token, req.body))
-  } else {
-    res.status(403).send({
-      error: 'Please provide both a name and a handle'
-    })
-  }
-})
-*/
 
 app.get('/contacts', (req, res) => {
   res.send(games.get(req.token))
